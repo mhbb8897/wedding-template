@@ -171,7 +171,7 @@ main {
 /* =========================================================
   MODAL W-NAME-FIRST (Layar Pertama)
   ========================================================= */
-  .w-name-first {
+.w-name-first {
     color: var(--primary);
 }
 
@@ -215,7 +215,6 @@ main {
   ========================================================= */
 .content-name {
     padding: 20px 25px;
-    /* Diubah menjadi 20px */
     background: radial-gradient(circle at top, rgba(255, 255, 255, 0.95), rgba(248, 243, 235, 0.95));
 }
 
@@ -260,18 +259,71 @@ main {
 }
 
 /* =========================================================
+  ANIMASI NAMA PENGANTIN
+  Dipicu lewat JS saat tombol "Buka Undangan" diklik
+  (menambahkan class play-animate-left / play-animate-right).
+  .content-name sudah overflow:hidden & position:relative,
+  jadi gerakan nama otomatis terpotong pas di garis tepi card.
+  ========================================================= */
+
+/* Posisi awal sebelum tombol diklik: nama disembunyikan
+   di luar tepi kanan (wanita) & tepi kiri (pria) card */
+#fera.opacity-0 {
+    opacity: 0;
+    transform: translateX(120%);
+}
+
+#tawing.opacity-0 {
+    opacity: 0;
+    transform: translateX(-120%);
+}
+
+/* Wanita: masuk dari kanan menuju kiri */
+@keyframes slideNameFromRight {
+    from {
+        transform: translateX(120%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Pria: masuk dari kiri menuju kanan */
+@keyframes slideNameFromLeft {
+    from {
+        transform: translateX(-120%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.play-animate-left {
+    animation: slideNameFromRight 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.play-animate-right {
+    animation: slideNameFromLeft 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* =========================================================
   REMARKS
   ========================================================= */
 .remarks-content {
     padding: 20px 35px;
-    /* Diubah menjadi 20px */
     background: radial-gradient(circle at top, rgba(255, 255, 255, 0.95), rgba(248, 243, 235, 0.95));
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
 }
 
 .remarks-content::before {
-    content: "“";
+    content: "\201C";
     display: block;
     height: 30px;
     color: var(--secondary);
@@ -314,7 +366,6 @@ main {
     width: 100%;
     max-width: 100%;
     padding: 20px 22px;
-    /* Diubah menjadi 20px */
     background: linear-gradient(180deg, #faf6ef 0%, #f3ecdf 50%, #fbf8f2 100%);
     overflow: hidden;
 }
@@ -348,7 +399,6 @@ main {
     z-index: 2;
     width: 100%;
     margin-bottom: 30px;
-    /* Diperkecil agar seimbang dgn padding 20px */
     text-align: center;
 }
 
@@ -407,7 +457,6 @@ main {
     display: flex;
     justify-content: center;
     margin-bottom: 35px;
-    /* Diperkecil agar proporsional */
     padding-top: 35px;
 }
 
@@ -453,7 +502,6 @@ main {
     width: 100%;
     max-width: 100%;
     padding: 20px 26px 22px;
-    /* Disesuaikan */
     background: linear-gradient(rgba(248, 243, 235, 0.88), rgba(248, 243, 235, 0.88));
     border: 1px solid rgba(139, 111, 71, 0.18);
     border-radius: 20px;
@@ -511,7 +559,7 @@ main {
 }
 
 .story-line::after {
-    content: "✦";
+    content: "\2726";
     position: absolute;
     top: 50%;
     left: 50%;
@@ -541,7 +589,6 @@ main {
   ========================================================= */
 .location {
     padding: 20px 25px;
-    /* Diubah menjadi 20px */
     background: radial-gradient(circle at top, rgba(255, 255, 255, 0.95), rgba(248, 243, 235, 0.95));
 }
 
@@ -573,7 +620,6 @@ main {
   ========================================================= */
 .notes-content {
     padding: 20px 25px;
-    /* Diubah menjadi 20px */
     background: linear-gradient(180deg, #faf6ef 0%, #f3ecdf 50%, #fbf8f2 100%);
 }
 
@@ -667,7 +713,6 @@ main {
   ========================================================= */
 .surah-dua {
     padding: 20px 25px;
-    /* Diubah menjadi 20px */
     background: radial-gradient(circle at top, rgba(255, 255, 255, 0.95), rgba(248, 243, 235, 0.95));
 }
 
@@ -688,7 +733,6 @@ main {
     width: 100%;
     max-width: 100%;
     padding: 20px 0;
-    /* Diubah menjadi 20px */
     background: linear-gradient(180deg, #faf6ef 0%, #f3ecdf 50%, #fbf8f2 100%);
     overflow: hidden;
 }
@@ -707,7 +751,6 @@ main {
     max-width: 100%;
     margin: 0 auto;
     padding: 15px 25px;
-    /* Disesuaikan agar isi form tidak terlalu renggang */
     text-align: left;
 }
 
@@ -759,7 +802,6 @@ main {
   ========================================================= */
 .w-name {
     padding: 20px 25px;
-    /* Diubah menjadi 20px */
     background: linear-gradient(180deg, #faf6ef 0%, #f3ecdf 50%, #fbf8f2 100%);
 }
 
@@ -794,7 +836,6 @@ footer {
     width: 100%;
     max-width: 100%;
     padding: 20px 15px;
-    /* Disesuaikan menjadi 20px */
     background: linear-gradient(135deg, #e8ddcd, #f3ece2);
     border-top: 1px solid var(--border);
     text-align: center;
@@ -846,7 +887,6 @@ footer {
         font-size: 13px;
     }
 
-    /* Semua Section Utama Padding Y 20px & X 15px */
     .content-name,
     .remarks-content,
     .story,
@@ -868,7 +908,6 @@ footer {
 
     .remarks-content h3 {
         font-size: 28px;
-
     }
 
     .story-header {
@@ -989,6 +1028,15 @@ footer {
     transition: transform 0.3s ease;
 }
 
+/* Kebanyakan pengunjung membuka undangan lewat browser HP,
+   jadi disc audio digeser sedikit lebih ke bawah pada mobile */
+@media (max-width: 600px) {
+    .fixed-audio {
+        bottom: 12px;
+        right: 15px;
+    }
+}
+
 .disc-icon {
     position: relative;
     width: 45px;
@@ -1026,4 +1074,63 @@ footer {
 
 .spinning {
     animation: spin-disc 4s linear infinite;
+}
+
+/* =========================================================
+  TEMA: MAROON
+  Dipindahkan dari <style> inline di file blade.
+  Diaktifkan lewat atribut body[data-theme="maroon"].
+  Untuk tema lain di masa depan, cukup tambah blok baru
+  dengan selector body[data-theme="nama-tema"].
+  ========================================================= */
+body[data-theme="maroon"] {
+    /* Override variabel dasar agar UI kartu & teks ikut berubah warna */
+    --primary: #7A1620;
+    --primary-dark: #5C0F17;
+    --secondary: #D8A7AE;
+    --cream: #F7E9EA;
+    --cream-dark: #E6D0D3;
+
+    /* Variabel utilitas Tailwind tambahan */
+    --theme-base: #7A1620;
+    --theme-base-hover: #5C0F17;
+    --theme-soft: #D8A7AE;
+    --theme-soft-hover: #C98A93;
+    --theme-fallback-bg: #F7E9EA;
+
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    background-color: var(--theme-fallback-bg);
+}
+
+@media (min-width: 768px) {
+    body[data-theme="maroon"] {
+        background-attachment: fixed;
+    }
+}
+
+body[data-theme="maroon"] .bg-base {
+    background-color: var(--theme-base) !important;
+}
+
+body[data-theme="maroon"] .hover\:bg-deepBlue:hover {
+    background-color: var(--theme-base-hover) !important;
+}
+
+body[data-theme="maroon"] .bg-softBlue {
+    background-color: var(--theme-soft) !important;
+}
+
+body[data-theme="maroon"] .hover\:bg-deepBlue.copy-text:hover,
+body[data-theme="maroon"] .copy-text:hover {
+    background-color: var(--theme-soft-hover) !important;
+}
+
+body[data-theme="maroon"] .border-base {
+    border-color: var(--theme-base) !important;
+}
+
+body[data-theme="maroon"] .focus\:ring-base:focus {
+    --tw-ring-color: var(--theme-base) !important;
 }

@@ -19,70 +19,15 @@
 
     <title>Wedding {{ $wedding->bride_nickname }} & {{ $wedding->groom_nickname }}</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/heart.ico') }}">
-
-    {{-- ====================================================
-         PALET WARNA TEMA: MAROON
-         Menimpa (override) variabel dari style.css
-    ===================================================== --}}
-    <style>
-        :root {
-            /* Override Variabel style.css (Penting agar UI card & text sesuai tema) */
-            --primary: #7A1620;
-            --primary-dark: #5C0F17;
-            --secondary: #D8A7AE;
-            --cream: #F7E9EA;
-            --cream-dark: #E6D0D3;
-
-            /* Variabel Utilitas Tailwind Tambahan */
-            --theme-base: #7A1620;
-            --theme-base-hover: #5C0F17;
-            --theme-soft: #D8A7AE;
-            --theme-soft-hover: #C98A93;
-            --theme-fallback-bg: #F7E9EA;
-        }
-
-        body {
-            background-image: url('{{ asset('assets/bg-maroon.png') }}');
-            background-repeat: no-repeat;
-            background-position: top center;
-            background-size: cover;
-            background-color: var(--theme-fallback-bg);
-        }
-
-        @media (min-width: 768px) {
-            body {
-                background-attachment: fixed;
-            }
-        }
-
-        .bg-base {
-            background-color: var(--theme-base) !important;
-        }
-
-        .hover\:bg-deepBlue:hover {
-            background-color: var(--theme-base-hover) !important;
-        }
-
-        .bg-softBlue {
-            background-color: var(--theme-soft) !important;
-        }
-
-        .hover\:bg-deepBlue.copy-text:hover,
-        .copy-text:hover {
-            background-color: var(--theme-soft-hover) !important;
-        }
-
-        .border-base {
-            border-color: var(--theme-base) !important;
-        }
-
-        .focus\:ring-base:focus {
-            --tw-ring-color: var(--theme-base) !important;
-        }
-    </style>
 </head>
 
-<body data-theme="maroon">
+{{--
+    Tema warna (maroon) sekarang didefinisikan di style.css lewat selector
+    body[data-theme="maroon"]. Satu-satunya yang tetap inline adalah
+    background-image, karena path-nya dinamis (hasil asset() dari Laravel)
+    sehingga tidak bisa dipindah ke file CSS statis.
+--}}
+<body data-theme="maroon" style="background-image: url('{{ asset('assets/bg-maroon.png') }}');">
 
     <!-- =========================================================
          MODAL
@@ -117,7 +62,7 @@
                     <div class="bg-white px-4 flex py-3 sm:flex sm:flex-row-reverse justify-center sm:px-6">
                         <button id="btn-close" type="button"
                             class="inline-flex w-80 justify-center rounded-md bg-base px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-deepBlue sm:ml-3 sm:w-auto">
-                            Buka Undangan
+                            💌 Buka Undangan
                         </button>
                     </div>
                 </div>
@@ -134,7 +79,7 @@
         <!-- NAMA MEMPELAI -->
         <section class="content-name rounded-lg">
             <h3 class="text-lg font-bold font-playwrite leading-loose">Pernikahan</h3>
-            <h2 id="fera" class="text-3xl font-bold font-sacramento leading-loose">
+            <h2 id="fera" class="text-3xl font-bold font-sacramento leading-loose opacity-0">
                 {{ $wedding->bride_name }} ({{ $wedding->bride_nickname }})
             </h2>
             <p class="text-xs">
@@ -151,7 +96,7 @@
 
             <h5 class="text-md font-medium leading-loose mt-4">dengan</h5>
 
-            <h2 id="tawing" class="text-3xl font-bold font-sacramento leading-loose">
+            <h2 id="tawing" class="text-3xl font-bold font-sacramento leading-loose opacity-0">
                 {{ $wedding->groom_name }} ({{ $wedding->groom_nickname }})
             </h2>
             <p class="text-xs">
@@ -170,11 +115,11 @@
         <!-- REMARKS -->
         <section class="remarks-content rounded-lg">
             <h3 class="text-xl font-bold underline underline-offset-4 font-playwrite">
-                Assalamualaikum Warahmatullahi Wabarokatuh
+                Assalamu'alaikum Warahmatullahi Wabarokatuh
             </h3>
             <p class="text-sm">
-                Dengan memohon Ridho serta Rahmat Allah SWT, kami bermaksud menyelenggarakan pernikahan kami yang Insya
-                Allah akan diselenggarakan pada:
+                Dengan memohon Ridho serta Rahmat Allah SWT, kami bermaksud menyelenggarakan pernikahan kami yang
+                Insya Allah akan diselenggarakan pada:
             </p>
             <div class="wedding-time leading-loose text-md mt-4">
                 <p>
@@ -237,11 +182,8 @@
         {{-- GALERI FOTO PREWEDDING --}}
         @if ($wedding->gallery_photos && count($wedding->gallery_photos) > 0)
             <section class="gallery-content w-full rounded-lg">
-
-                {{-- BUNGKUS DENGAN CARD AGAR MENYATU SEPERTI LOVE STORY --}}
                 <div class="story-card p-4 md:p-6 rounded-xl shadow-lg w-full">
 
-                    {{-- HEADER GALERI --}}
                     <div class="gallery-header story-header text-center mb-5">
                         <span class="story-subtitle">
                             OUR MOMENT
@@ -257,10 +199,8 @@
                         </p>
                     </div>
 
-                    {{-- FOTO --}}
                     <div class="gallery-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
                         @foreach ($wedding->gallery_photos as $index => $photo)
-                            {{-- Class 'story-card' dihilangkan dari sini agar foto rapi mengisi kotak --}}
                             <div class="gallery-item overflow-hidden rounded-lg shadow-sm aspect-square bg-gray-100">
                                 <img src="{{ Storage::url($photo) }}" alt="Galeri foto prewedding {{ $index + 1 }}"
                                     loading="lazy"
@@ -270,7 +210,6 @@
                     </div>
 
                 </div>
-
             </section>
         @endif
 
@@ -292,8 +231,8 @@
                     <h2 class="text-xl font-bold underline underline-offset-4">Titip Hadiah</h2>
                     <p class="pb-2">
                         Kehadiran dan doa restu Anda adalah kebahagiaan terbesar bagi kami. Namun, jika Anda
-                        berkeinginan memberikan tanda kasih, kami menyediakan fasilitas titipan hadiah melalui rekening
-                        berikut:
+                        berkeinginan memberikan tanda kasih, kami menyediakan fasilitas titipan hadiah melalui
+                        rekening berikut:
                     </p>
                     <div class="ex-content grid grid-cols-1 md:grid-cols-2 gap-4 mx-auto">
                         @foreach ($wedding->giftAccounts as $account)
@@ -349,8 +288,8 @@
                         @enderror
 
                         <label for="note"><span class="p-1 shadow-md">Pesan:</span></label>
-                        <textarea class="p-1 shadow-md border-base focus:outline-none rounded-sm border-b-2 mb-1" id="note"
-                            name="message" placeholder="Isikan pesan anda">{{ old('message') }}</textarea>
+                        <textarea class="p-1 shadow-md border-base focus:outline-none rounded-sm border-b-2 mb-1"
+                            id="note" name="message" placeholder="Isikan pesan anda">{{ old('message') }}</textarea>
                         @error('message')
                             <span class="text-xs text-red-500">{{ $message }}</span>
                         @enderror
@@ -366,17 +305,12 @@
 
                             @forelse ($wedding->wishes as $wish)
                                 <div class="flex flex-col border-2 rounded-md p-1 bg-base border-white">
-
-                                    {{-- NAMA PENGIRIM --}}
                                     <h2 class="font-bold text-xl text-white">
                                         {{ $wish->name }}
                                     </h2>
-
-                                    {{-- PESAN --}}
                                     <p class="text-white text-sm">
                                         {{ $wish->message }}
                                     </p>
-
                                 </div>
                             @empty
                                 <div class="flex flex-col border-2 rounded-md p-1 bg-base border-white">
@@ -434,15 +368,29 @@
             </p>
         </footer>
 
-        <!-- FLOATING AUDIO DISC -->
-        @if ($wedding->audio_file)
-            <div class="fixed-audio" onclick="toggleAudio()">
-                <div id="audio-disc" class="disc-icon">
-                    <img src="{{ asset('assets/disk.png') }}" alt="audio-disc">
-                </div>
-                <audio id="myAudio" loop src="{{ asset('assets/sezairi.mp3') }}" type="audio/mpeg"></audio>
+        {{--
+            FLOATING AUDIO DISC
+            Sebelumnya dibungkus "@if ($wedding->audio_file)" padahal src audio
+            di bawah ini di-hardcode ke assets/sezairi.mp3 (tidak memakai
+            $wedding->audio_file sama sekali). Akibatnya, kalau kolom
+            audio_file di database kosong, ikon disc ini tidak pernah tampil
+            walau file audionya sendiri statis dan selalu ada.
+
+            Perbaikan: kondisi @if dihapus supaya ikon selalu tampil, dan
+            src audio sekarang memakai $wedding->audio_file jika diisi lewat
+            admin, dengan fallback ke file default sezairi.mp3.
+        --}}
+        @php
+            $audioSrc = $wedding->audio_file
+                ? Storage::url($wedding->audio_file)
+                : asset('assets/sezairi.mp3');
+        @endphp
+        <div class="fixed-audio" onclick="toggleAudio()">
+            <div id="audio-disc" class="disc-icon">
+                <img src="{{ asset('assets/disk.png') }}" alt="audio-disc">
             </div>
-        @endif
+            <audio id="myAudio" loop src="{{ $audioSrc }}" type="audio/mpeg"></audio>
+        </div>
 
     </main>
 
