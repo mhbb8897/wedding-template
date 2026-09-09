@@ -1,66 +1,110 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Wedding Template
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+> 🚧 **Status: Dalam Tahap Pembangunan (Development)**
+>
+> Wedding Template adalah project website undangan pernikahan berbasis Laravel yang **masih dalam tahap pengembangan**. Beberapa fitur, tampilan, struktur database, dan implementasi lainnya masih dapat berubah selama proses development berlangsung.
+>
+> Project ini **belum dianggap sebagai versi final**.
 
-## About Laravel
+## 📌 Tentang Project
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**Wedding Template** merupakan aplikasi web undangan pernikahan yang dikembangkan menggunakan Laravel dan Filament.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Project ini dibuat sebagai template/fondasi untuk membangun website undangan pernikahan dengan fitur pengelolaan data melalui admin panel.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Karena masih dalam tahap pembangunan, struktur dan fitur project dapat mengalami perubahan tanpa pemberitahuan sebelumnya. Template undangan sudah bisa digunakan hanya untuk tema marun.
 
-## Learning Laravel
+## 🚧 Status Pengembangan
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Saat ini project masih berada pada tahap **active development**.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Beberapa bagian yang masih mungkin mengalami perubahan:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+* 🎨 Tampilan dan desain halaman
+* 🧩 Fitur dan fungsionalitas
+* 🗄️ Struktur database
+* 🔐 Authentication dan authorization
+* ⚙️ Konfigurasi aplikasi
+* 📱 Responsiveness
+* 🛠️ Struktur kode dan arsitektur
+* 📝 Dokumentasi
 
-## Laravel Sponsors
+> **Catatan:** Jangan menganggap API, database schema, route, maupun struktur folder yang ada saat ini sebagai API/struktur yang sudah final.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## ✨ Fitur yang Sedang Dikembangkan
 
-### Premium Partners
+Beberapa bagian utama yang tersedia atau sedang dikembangkan meliputi:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+* Website undangan pernikahan
+* Pengelolaan data wedding
+* Admin panel menggunakan Filament
+* CRUD data Wedding
+* Role & permission management
+* Database migration, factory, dan seeder
+* Asset management menggunakan Vite
+* Authentication dan authorization
 
-## Contributing
+Fitur-fitur tersebut masih dapat bertambah, berubah, atau mengalami refactoring selama proses pengembangan.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 🛠️ Tech Stack
 
-## Code of Conduct
+| Teknologi       | Keterangan               |
+| --------------- | ------------------------ |
+| PHP             | `^8.2`                   |
+| Laravel         | `^11.31`                 |
+| Filament        | `^4.0`                   |
+| Filament Shield | `^4.3`                   |
+| Vite            | Frontend asset bundling  |
+| Node.js / npm   | Frontend dependency      |
+| PHPUnit         | Automated testing        |
+| Laravel Pint    | Code style               |
+| Laravel Sail    | Docker-based development |
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## ⚠️ Development Notice
 
-## Security Vulnerabilities
+Project ini ditujukan terutama untuk **development dan experimentation** pada tahap saat ini.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Jika ingin menggunakan project untuk production, lakukan review dan testing terlebih dahulu, terutama pada:
 
-## License
+* Security
+* Authentication
+* Authorization
+* Database
+* File upload
+* Environment configuration
+* Error handling
+* Performance
+* Production deployment
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**Gunakan dengan risiko sendiri selama project masih dalam tahap pembangunan.**
+
+## 🗺️ Roadmap
+
+Roadmap dapat berubah mengikuti perkembangan project. Secara umum pengembangan diarahkan pada:
+
+* [ ] Penyempurnaan tampilan undangan
+* [ ] Penyempurnaan admin panel
+* [ ] Penyempurnaan pengelolaan data wedding
+* [ ] Penyempurnaan authentication & authorization
+* [ ] Optimasi responsive design
+* [ ] Penambahan fitur undangan
+* [ ] Testing yang lebih lengkap
+* [ ] Optimasi production
+* [ ] Dokumentasi yang lebih lengkap
+* [ ] Rilis versi stabil
+
+## 🤝 Contribution
+
+Karena project masih dalam tahap pembangunan, perubahan pada struktur maupun fitur masih sangat mungkin dilakukan.
+
+Kontribusi, feedback, bug report, dan improvement sangat terbuka selama mengikuti aturan repository.
+
+## 📄 License
+
+Project ini masih dalam tahap pengembangan. Ketentuan penggunaan dan lisensi mengikuti ketentuan yang ditetapkan oleh pemilik repository.
+
+---
+
+> **Wedding Template — Work in Progress 🚧**
+>
+> Project ini masih terus dikembangkan dan belum merupakan versi final.
