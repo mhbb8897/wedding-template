@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\Undangans\Pages;
+namespace App\Filament\Resources\Weddings\Pages;
 
-use App\Filament\Resources\Undangans\UndanganResource;
+use App\Filament\Resources\Weddings\WeddingResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-class ListUndangans extends ListRecords
+class ListWeddings extends ListRecords
 {
-    protected static string $resource = UndanganResource::class;
+    protected static string $resource = WeddingResource::class;
 
     protected function getHeaderActions(): array
     {

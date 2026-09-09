@@ -1,0 +1,1029 @@
+/* =========================================================
+GLOBAL
+========================================================= */
+@font-face {
+    font-family: "Great Vibes";
+    src: url("../font/GreatVibes-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Playwrite DE Grund";
+    src: url("../font/PlaywriteDEGrund-Light.ttf") format("truetype");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Playwrite DE Grund";
+    src: url("../font/PlaywriteDEGrund-ExtraLight.ttf") format("truetype");
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: "Playwrite DE Grund";
+    src: url("../font/PlaywriteDEGrund-Light.ttf") format("truetype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Sacramento";
+    src: url("../font/Sacramento-Regular.ttf") format("truetype");
+    font-weight: 400;
+}
+
+/* =========================================================
+  ROOT
+  ========================================================= */
+:root {
+    --primary: #8b6f47;
+    --primary-dark: #6f5738;
+    --secondary: #b69b72;
+    --cream: #f8f3eb;
+    --cream-dark: #eee4d5;
+    --white: #ffffff;
+    --black: #2f2a25;
+    --gray: #766f67;
+    --light-gray: #aaa39b;
+    --border: rgba(139, 111, 71, 0.25);
+    --shadow-soft: 0 10px 35px rgba(70, 50, 30, 0.10);
+    --shadow-medium: 0 20px 55px rgba(70, 50, 30, 0.16);
+}
+
+/* =========================================================
+  RESET
+  ========================================================= */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background: var(--cream);
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-width: 320px;
+    max-width: 100%;
+    overflow-x: hidden;
+    background: linear-gradient(rgba(248, 243, 235, 0.88), rgba(248, 243, 235, 0.88));
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: var(--black);
+    font-family: "Playwrite DE Grund", serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+iframe {
+    max-width: 100%;
+}
+
+::selection {
+    background: var(--primary);
+    color: var(--white);
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #eee7dd;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+main {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.top-w-name,
+.content-name,
+.remarks-content,
+.location,
+.notes-content,
+.gift-content,
+.ex-content,
+.surah-content,
+.surah-dua,
+.w-name {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* =========================================================
+  MODAL
+  ========================================================= */
+#modal-container {
+    width: 100%;
+    max-width: 100%;
+}
+
+#modal-content {
+    width: min(100%, 500px);
+    max-height: 100vh;
+    transition: max-height 0.5s ease-out;
+    overflow: hidden;
+}
+
+#modal-title {
+    max-width: 100%;
+}
+
+#modal-title h1 {
+    font-family: "Great Vibes", cursive;
+    color: var(--primary);
+}
+
+#modal-content img {
+    max-width: 100%;
+    object-fit: contain;
+}
+
+/* =========================================================
+  MODAL W-NAME-FIRST (Layar Pertama)
+  ========================================================= */
+  .w-name-first {
+    color: var(--primary);
+}
+
+.w-name-first h3,
+.w-name-first h1,
+.w-name-first p {
+    color: var(--primary);
+}
+
+@keyframes pulseInviteBtn {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(139, 111, 71, 0.45);
+    }
+
+    50% {
+        box-shadow: 0 0 0 14px rgba(139, 111, 71, 0);
+    }
+}
+
+#btn-close {
+    animation: pulseInviteBtn 2.2s ease-out infinite;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark)) !important;
+    transition: transform 0.25s ease, background 0.25s ease;
+    max-width: 100%;
+}
+
+#btn-close:hover {
+    animation-play-state: paused;
+    transform: translateY(-2px) scale(1.02);
+    background: var(--primary-dark) !important;
+}
+
+#btn-close:active {
+    transform: translateY(0) scale(0.97);
+}
+
+/* =========================================================
+  CONTENT NAME
+  ========================================================= */
+.content-name {
+    padding: 20px 25px;
+    /* Diubah menjadi 20px */
+    background: radial-gradient(circle at top, rgba(255, 255, 255, 0.95), rgba(248, 243, 235, 0.95));
+}
+
+.content-name::before {
+    content: "❦";
+    display: block;
+    margin-bottom: 10px;
+    color: var(--secondary);
+    font-size: 28px;
+}
+
+.content-name h3 {
+    margin: 0 0 8px;
+    color: var(--gray);
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.content-name h2 {
+    margin: 0;
+    color: var(--primary);
+    font-family: "Great Vibes", cursive;
+    font-size: 58px;
+    line-height: 1.15;
+    font-weight: normal;
+    overflow-wrap: anywhere;
+}
+
+.content-name h5 {
+    color: var(--gray);
+}
+
+.content-name p {
+    margin: 15px auto 0;
+    width: 100%;
+    max-width: 560px;
+    color: var(--gray);
+    font-size: 14px;
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+}
+
+/* =========================================================
+  REMARKS
+  ========================================================= */
+.remarks-content {
+    padding: 20px 35px;
+    /* Diubah menjadi 20px */
+    background: radial-gradient(circle at top, rgba(255, 255, 255, 0.95), rgba(248, 243, 235, 0.95));
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.remarks-content::before {
+    content: "“";
+    display: block;
+    height: 30px;
+    color: var(--secondary);
+    font-family: Georgia, serif;
+    font-size: 60px;
+    line-height: 40px;
+}
+
+.remarks-content h3 {
+    margin: 10px 0;
+    color: var(--primary);
+    font-family: "Great Vibes", cursive;
+    font-size: 38px;
+    font-weight: normal;
+}
+
+.remarks-content p {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 600px;
+    color: var(--gray);
+    font-size: 14px;
+    line-height: 2;
+    overflow-wrap: anywhere;
+}
+
+.remarks-content div {
+    margin-top: 15px;
+}
+
+.wedding-time p {
+    margin-bottom: 4px;
+}
+
+/* =========================================================
+  LOVE STORY
+  ========================================================= */
+.story {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    padding: 20px 22px;
+    /* Diubah menjadi 20px */
+    background: linear-gradient(180deg, #faf6ef 0%, #f3ecdf 50%, #fbf8f2 100%);
+    overflow: hidden;
+}
+
+.story::before,
+.story::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.story::before {
+    top: -100px;
+    left: -120px;
+    background: radial-gradient(circle, rgba(139, 111, 71, 0.14), transparent 70%);
+}
+
+.story::after {
+    right: -120px;
+    bottom: -120px;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(139, 111, 71, 0.11), transparent 70%);
+}
+
+.story-header {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin-bottom: 30px;
+    /* Diperkecil agar seimbang dgn padding 20px */
+    text-align: center;
+}
+
+.story-subtitle {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--secondary);
+    font-size: 10px;
+    letter-spacing: 4px;
+}
+
+.story-header h2 {
+    margin: 0;
+    color: var(--primary);
+    font-family: "Great Vibes", cursive;
+    font-size: 44px;
+    font-weight: normal;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+}
+
+.story-intro {
+    width: 100%;
+    max-width: 600px;
+    margin: 12px auto 0;
+    color: var(--gray);
+    font-size: 12px;
+    line-height: 2;
+    font-style: italic;
+    justify-items: center;
+}
+
+.love-timeline {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 0 10px;
+}
+
+.love-timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, transparent 0%, var(--secondary) 5%, var(--secondary) 95%, transparent 100%);
+}
+
+.story-item {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 35px;
+    /* Diperkecil agar proporsional */
+    padding-top: 35px;
+}
+
+.story-item:last-child {
+    margin-bottom: 0;
+}
+
+.story-marker {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 10;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-50%);
+    border: 1px solid rgba(139, 111, 71, 0.35);
+    border-radius: 50%;
+    background: rgba(248, 243, 235, 0.98);
+    box-shadow: 0 5px 20px rgba(139, 111, 71, 0.12);
+}
+
+.story-marker::before {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border: 1px solid rgba(182, 155, 114, 0.35);
+    border-radius: 50%;
+}
+
+.story-marker span {
+    position: relative;
+    z-index: 2;
+    color: var(--primary);
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.story-card {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    padding: 20px 26px 22px;
+    /* Disesuaikan */
+    background: linear-gradient(rgba(248, 243, 235, 0.88), rgba(248, 243, 235, 0.88));
+    border: 1px solid rgba(139, 111, 71, 0.18);
+    border-radius: 20px;
+    box-shadow: 0 12px 35px rgba(70, 50, 30, 0.09);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow-wrap: anywhere;
+}
+
+.story-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(70, 50, 30, 0.14);
+}
+
+.story-card::before {
+    content: "";
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    width: 1px;
+    height: 35px;
+    transform: translateX(-50%);
+    background: var(--secondary);
+}
+
+.story-label {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--secondary);
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+.story-card h3 {
+    margin: 0;
+    color: var(--primary);
+    font-family: "Great Vibes", cursive;
+    font-size: 34px;
+    font-weight: normal;
+    line-height: 1.3;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+.story-line {
+    position: relative;
+    width: 65px;
+    height: 1px;
+    margin: 15px auto 18px;
+    background: var(--secondary);
+}
+
+.story-line::after {
+    content: "✦";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 8px;
+    background: #ffffff;
+    color: var(--secondary);
+    font-size: 9px;
+}
+
+.story-card p {
+    margin: 0 0 16px;
+    color: var(--gray);
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 2;
+    text-align: justify;
+    overflow-wrap: anywhere;
+}
+
+.story-card p:last-child {
+    margin-bottom: 0;
+}
+
+/* =========================================================
+  LOCATION
+  ========================================================= */
+.location {
+    padding: 20px 25px;
+    /* Diubah menjadi 20px */
+    background: radial-gradient(circle at top, rgba(255, 255, 255, 0.95), rgba(248, 243, 235, 0.95));
+}
+
+.location h2 {
+    margin: 0 0 15px;
+    color: var(--primary);
+    font-family: "Great Vibes", cursive;
+    font-size: 42px;
+    font-weight: normal;
+}
+
+.maps-content {
+    width: 100%;
+    max-width: 100%;
+}
+
+.location iframe {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    height: 450px;
+    margin: 0 auto;
+    border-radius: 14px;
+    box-shadow: var(--shadow-soft);
+}
+
+/* =========================================================
+  TITIP HADIAH
+  ========================================================= */
+.notes-content {
+    padding: 20px 25px;
+    /* Diubah menjadi 20px */
+    background: linear-gradient(180deg, #faf6ef 0%, #f3ecdf 50%, #fbf8f2 100%);
+}
+
+.notes-content h2 {
+    margin: 0 0 10px;
+    color: var(--primary);
+    font-family: "Great Vibes", cursive;
+    font-size: 42px;
+    font-weight: normal;
+}
+
+.notes-content>p {
+    margin: 0 auto 20px;
+    color: var(--gray);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.ex-content {
+    width: 100%;
+    max-width: 650px;
+    padding: 20px 25px;
+    margin: 0 auto;
+    color: var(--cream);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.in-content {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px 25px;
+    color: var(--cream);
+    background: linear-gradient(135deg, var(--secondary), var(--primary)) !important;
+    border-color: rgba(255, 255, 255, 0.65) !important;
+    border-radius: 16px;
+    overflow: hidden;
+    animation: floatGiftCard 3.5s ease-in-out infinite;
+}
+
+.in-content h3 {
+    margin: 0 0 8px;
+    font-family: "Great Vibes", cursive;
+    font-size: 32px;
+    font-weight: normal;
+}
+
+.in-content img {
+    display: block;
+    max-width: 40px;
+    max-height: 40px;
+    margin: 0 auto 10px;
+}
+
+.in-content span.copied-text {
+    color: var(--cream);
+    font-family: "Great Vibes", cursive;
+    font-size: 20px;
+    overflow-wrap: anywhere;
+}
+
+.in-content p {
+    margin: 10px 0 0;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.copy-text {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+    padding: 7px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.65) !important;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.18) !important;
+    color: var(--white) !important;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.copy-text:hover {
+    background: var(--primary-dark) !important;
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+  SURAH
+  ========================================================= */
+.surah-dua {
+    padding: 20px 25px;
+    /* Diubah menjadi 20px */
+    background: radial-gradient(circle at top, rgba(255, 255, 255, 0.95), rgba(248, 243, 235, 0.95));
+}
+
+.surah-dua p {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto 15px;
+    color: var(--gray);
+    font-size: 14px;
+    line-height: 2;
+    overflow-wrap: anywhere;
+}
+
+/* =========================================================
+  FORM UCAPAN
+  ========================================================= */
+.notes-client {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px 0;
+    /* Diubah menjadi 20px */
+    background: linear-gradient(180deg, #faf6ef 0%, #f3ecdf 50%, #fbf8f2 100%);
+    overflow: hidden;
+}
+
+.notes-to {
+    font-family: "Great Vibes", cursive;
+    font-size: 32px;
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 10px;
+    overflow-wrap: anywhere;
+}
+
+.form-notes {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 15px 25px;
+    /* Disesuaikan agar isi form tidak terlalu renggang */
+    text-align: left;
+}
+
+.form-notes label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.form-notes input,
+.form-notes textarea {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 15px;
+    padding: 12px 14px;
+    outline: none;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--black);
+    font-size: 13px;
+    resize: vertical;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 13px 22px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: var(--white);
+    font-size: 13px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(111, 87, 56, 0.18);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.message-notes {
+    width: 100%;
+    max-width: 100%;
+    padding: 15px 25px;
+    overflow-x: hidden;
+}
+
+/* =========================================================
+  WEDDING NAME
+  ========================================================= */
+.w-name {
+    padding: 20px 25px;
+    /* Diubah menjadi 20px */
+    background: linear-gradient(180deg, #faf6ef 0%, #f3ecdf 50%, #fbf8f2 100%);
+}
+
+.w-name::before {
+    content: "❦";
+    display: block;
+    margin-bottom: 10px;
+    color: var(--secondary);
+    font-size: 28px;
+}
+
+.w-name>p {
+    margin: 5px 0;
+    color: var(--primary);
+    font-family: "Great Vibes", cursive;
+    font-size: 48px;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+}
+
+.w-name>div {
+    width: 75%;
+    max-width: 600px;
+    margin: 20px auto 0;
+    color: var(--primary);
+}
+
+/* =========================================================
+  FOOTER
+  ========================================================= */
+footer {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px 15px;
+    /* Disesuaikan menjadi 20px */
+    background: linear-gradient(135deg, #e8ddcd, #f3ece2);
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+/* =========================================================
+  RESPONSIVE TABLET (MAX 768px)
+  ========================================================= */
+@media (max-width: 768px) {
+
+    .content-name,
+    .remarks-content,
+    .story,
+    .location,
+    .notes-content,
+    .surah-dua,
+    .w-name,
+    .notes-client {
+        padding: 20px 20px;
+    }
+
+    .content-name h2 {
+        font-size: 46px;
+    }
+
+    .story-header h2 {
+        font-size: 36px;
+    }
+
+    .story-card h3 {
+        font-size: 29px;
+    }
+
+    .ex-content {
+        padding: 20px 10px;
+    }
+
+    .form-notes,
+    .message-notes {
+        padding: 15px 20px;
+    }
+}
+
+/* =========================================================
+  RESPONSIVE MOBILE (MAX 600px)
+  ========================================================= */
+@media (max-width: 600px) {
+    body {
+        font-size: 13px;
+    }
+
+    /* Semua Section Utama Padding Y 20px & X 15px */
+    .content-name,
+    .remarks-content,
+    .story,
+    .location,
+    .notes-content,
+    .surah-dua,
+    .w-name,
+    .notes-client {
+        padding: 20px 15px;
+    }
+
+    .content-name::before {
+        font-size: 22px;
+    }
+
+    .content-name h2 {
+        font-size: clamp(34px, 10vw, 46px);
+    }
+
+    .remarks-content h3 {
+        font-size: 28px;
+
+    }
+
+    .story-header {
+        margin-bottom: 25px;
+    }
+
+    .story-header h2 {
+        font-size: clamp(28px, 8vw, 36px);
+    }
+
+    .story-item {
+        padding-top: 25px;
+        margin-bottom: 25px;
+    }
+
+    .story-card {
+        padding: 18px 15px;
+        border-radius: 15px;
+    }
+
+    .story-card::before {
+        top: -25px;
+        height: 25px;
+    }
+
+    .story-card h3 {
+        font-size: clamp(23px, 7vw, 29px);
+    }
+
+    .location h2 {
+        font-size: 32px;
+    }
+
+    .location iframe {
+        height: 320px;
+    }
+
+    .notes-content h2 {
+        font-size: 32px;
+    }
+
+    .ex-content {
+        padding: 15px 0;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .in-content {
+        padding: 18px 15px;
+    }
+
+    .in-content h3 {
+        font-size: 29px;
+    }
+
+    .notes-to {
+        font-size: 28px;
+    }
+
+    .form-notes,
+    .message-notes {
+        padding: 10px 0;
+    }
+
+    .w-name>p {
+        font-size: 32px;
+    }
+
+    .w-name>div {
+        width: 100%;
+    }
+}
+
+/* =========================================================
+  SMALL MOBILE
+  ========================================================= */
+@media (max-width: 380px) {
+    .content-name h2 {
+        font-size: 32px;
+    }
+
+    .remarks-content h3 {
+        font-size: 25px;
+    }
+
+    .story-header h2 {
+        font-size: 27px;
+    }
+
+    .story-card h3 {
+        font-size: 22px;
+    }
+
+    .location iframe {
+        height: 280px;
+    }
+
+    .w-name>p {
+        font-size: 28px;
+    }
+}
+
+/* =========================================================
+  FLOATING AUDIO
+  ========================================================= */
+.fixed-audio {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 999;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: var(--shadow-medium);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: transform 0.3s ease;
+}
+
+.disc-icon {
+    position: relative;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid #111;
+    overflow: hidden;
+}
+
+.disc-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.disc-icon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
+    background: var(--primary);
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+@keyframes spin-disc {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.spinning {
+    animation: spin-disc 4s linear infinite;
+}
