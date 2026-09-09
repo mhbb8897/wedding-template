@@ -10,3 +10,6 @@ Route::get('/{slug}', [WeddingInvitationController::class, 'show'])
     ->name('wedding.show');
 Route::post('/{slug}/wishes', [WeddingInvitationController::class, 'storeWish'])
     ->name('wedding.wishes.store');
+Route::fallback(function () {
+    return view('errors.404');
+});
